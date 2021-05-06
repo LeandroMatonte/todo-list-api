@@ -1,24 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import { TodosList } from "./todosList";
+import { InputList } from "./inputList";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 export function Home() {
+	const [todos, setTodos] = useState([]);
+	const [task, setTask] = useState("");
+	const [pend, setPend] = useState(0);
+
+	const agregarLista = e => {
+		e.preventDefault();
+		if (task.length != 0) {
+			setTodos([...todos, task]);
+			setTask("");
+			setPend(pend + 1);
+		}
+	};
+
+	const quitarDeLista = () => {
+		setPend(pend - 1);
+	};
+
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container mt-5">
+			<div className="encabezado">
+				<p className="text-center">todos</p>
+			</div>
+			<div className="row d-flex justify-content-center">
+				<div className="col-6">
+					<ul className="shadow list-group border border-bottom-0 rounded-0">
+						<InputList
+							agregarLista={agregarLista}
+							setearTask={e => setTask(e.target.value)}
+							task={task}
+							pend={pend}
+						/>
+
+						<TodosList
+							todos={todos}
+							quitarDeLista={quitarDeLista}
+						/>
+
+						<li className="footerTareas list-group-item border-left-0 border-top-0 border-right-0">
+							{pend} {pend == 1 ? "item" : "items"} left
+						</li>
+					</ul>
+					<div className="tarjeta1 shadow border"></div>
+					<div className="tarjeta2 shadow border"></div>
+				</div>
+			</div>
 		</div>
 	);
 }

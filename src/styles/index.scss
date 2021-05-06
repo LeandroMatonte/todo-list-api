@@ -1,13 +1,47 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-/* 
+body{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(179, 185, 187);
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+li, .tarea{
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(135, 141, 143);
+}
 
-*/
+.tarea:focus{
+    box-shadow: none;
+}
+
+.encabezado > p{
+    font-size: 90px;
+}
+
+.footerTareas{
+    font-size: 15px;
+}
+
+.borrarTareaOculto{
+    display: none;
+}
+
+.tarjeta1{
+    position: relative;
+    bottom: 15px;
+    height: 20px;
+    background-color: white;
+    margin: 0px 5px;
+    z-index: -1;
+}
+
+.tarjeta2{
+    position: relative;
+    bottom: 30px;
+    height: 20px;
+    background-color: white;
+    margin: 0px 10px;
+    z-index: -2;
+}
