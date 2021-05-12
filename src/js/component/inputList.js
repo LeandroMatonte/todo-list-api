@@ -10,8 +10,7 @@ export function InputList(props) {
 						type="text"
 						className="tarea form-control border-0 p-0"
 						autoComplete="off"
-						id="basic-url"
-						aria-describedby="basic-addon3"
+						id="tarea"
 						onChange={e => props.setearTask(e)}
 						value={props.task}
 						placeholder={

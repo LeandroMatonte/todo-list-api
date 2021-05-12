@@ -17,7 +17,7 @@ export function TodosList(props) {
 				}}
 				key={index}
 				className="list-group-item d-flex justify-content-between border-left-0 border-top-0 border-right-0">
-				<div className="mx-4">{element}</div>
+				<div className="mx-4">{element.label}</div>
 				<div
 					className={`${
 						index == selected ? "" : "borrarTareaOculto"
